@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // aksi tombol
-                moveToPage(v, CalculatorActivity.class);
+                moveToPage(v, BilanganActivity.class);
+                Log.d("hafislog", "onClick Position");
+                Log.e("hafislog", "onClick Position");
             }
         });
 
@@ -36,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     // function/method || methodName = moveToPage, paremeter = View v, Class<?> cls
     private void moveToPage(View v, Class<?> cls) {
         Intent intentToPage = new Intent(v.getContext(), cls);
-        intentToPage.putExtra("key1", etInputText.getText().toString());
         startActivity(intentToPage);
     }
 }
