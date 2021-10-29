@@ -9,26 +9,32 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.hafidzproject.basicandroid.databinding.ActivityLogin2Binding;
+
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText etUsername;
-    private EditText etPassword;
-    private Button btnLogin;
+    private ActivityLogin2Binding binding;
+
+//    private EditText etUsername;
+//    private EditText etPassword;
+//    private Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login2);
+        binding = ActivityLogin2Binding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        etUsername = findViewById(R.id.et_username);
-        etPassword = findViewById(R.id.et_password);
-        btnLogin = findViewById(R.id.btn_login);
+//        etUsername = findViewById(R.id.et_username);
+//        etPassword = findViewById(R.id.et_password);
+//        btnLogin = findViewById(R.id.btn_login);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(checkLogin(etUsername.getText().toString(), etPassword.getText().toString())){
+                if(checkLogin(binding.etUsername.getText().toString(), binding.etPassword.getText().toString())){
                     moveToPage(v, MainActivity.class);
                 } else {
 //                    etUsername.setError("Kesalahan Username");
