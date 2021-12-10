@@ -15,10 +15,11 @@ import java.util.List;
 public class SimpleListViewAdapter extends RecyclerView.Adapter<SimpleListViewAdapter.ViewHolder> {
 
 
-    private List<Anime> animeList;
+//    private List<Anime> animeList;
+    private Anime[] animeArray;
 
-    public SimpleListViewAdapter(List<Anime> animeList) {
-        this.animeList = animeList;
+    public SimpleListViewAdapter(Anime[] animeArray) {
+        this.animeArray = animeArray;
     }
 
     @NonNull
@@ -30,14 +31,14 @@ public class SimpleListViewAdapter extends RecyclerView.Adapter<SimpleListViewAd
 
     @Override
     public void onBindViewHolder(@NonNull SimpleListViewAdapter.ViewHolder holder, int position) {
-        Anime anime = animeList.get(position);
+        Anime anime = animeArray[position];
         holder.itemSampleListViewBinding.tvJudul.setText(anime.getJudul());
         holder.itemSampleListViewBinding.tvRating.setText(String.valueOf(anime.getRating()));
     }
 
     @Override
     public int getItemCount() {
-        return animeList.size();
+        return animeArray.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

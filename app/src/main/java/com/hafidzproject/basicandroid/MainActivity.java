@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        log("onCreate");
         setContentView(R.layout.activity_main);
 
         // Variable | tipe data = Button, variable name = btnMoveToPage2, nilai = findViewById(R.id.btn_next_to_page_2)
@@ -28,17 +29,58 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // aksi tombol
                 moveToPage(v, BilanganActivity.class);
-                Log.d("hafislog", "onClick Position");
-                Log.e("hafislog", "onClick Position");
+//                Log.d("Main Activity", "onClick Position");
+//                Log.e("Main Activity", "onClick Position");
             }
         });
 
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        log("onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        log("onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        log("onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        log("onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        log("onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        log("onDestroy");
+    }
+
+    private void log(String message){
+        Log.d("hafidz_main", message);
+    }
+
     // function/method || methodName = moveToPage, paremeter = View v, Class<?> cls
     private void moveToPage(View v, Class<?> cls) {
         Intent intentToPage = new Intent(v.getContext(), cls);
         startActivity(intentToPage);
+
     }
 }
